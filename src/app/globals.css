@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --font-sans: 'Cairo', 'Tajawal', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #1f2937;
+  font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0fdf4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #166534;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #14532d;
+}
+
+/* Moroccan/Algerian geometric pattern background utility */
+.bg-pattern-geometric {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(22, 101, 52, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(22, 101, 52, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(22, 101, 52, 0.02) 0%, transparent 50%);
+}
