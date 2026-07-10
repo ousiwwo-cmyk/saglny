@@ -35,7 +35,7 @@ export function SchoolSidebar() {
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-700 text-white text-sm font-bold">
           أ
         </div>
-        <span className="font-bold text-emerald-800">أكاديميتي</span>
+        <span className="font-bold text-emerald-800">سجلني</span>
       </Link>
 
       <nav className="flex-1 space-y-1">

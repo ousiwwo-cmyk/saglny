@@ -6,60 +6,29 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { createClient } from "@/lib/supabase/client"
+import { adminLogin } from "./actions"
 import { FiMail, FiLock, FiAlertCircle, FiLoader } from "react-icons/fi"
 
 export default function LoginPage() {
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError("")
 
-    const supabase = createClient()
-    const { data, error: authError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
-
-    if (authError) {
-      setError(authError.message === "Invalid login credentials"
-        ? "البريد الإلكتروني أو كلمة المرور غير صحيحة"
-        : authError.message)
+    const result = await adminLogin(email, password)
+    if (result?.error) {
+      setError(result.error)
       setLoading(false)
-      return
+    } else if (result?.success) {
+      router.push(result.redirectTo)
+      router.refresh()
     }
-
-    // Check if admin
-    const { data: admin } = await supabase
-      .from("admins")
-      .select("id")
-      .eq("id", data.user?.id)
-      .single()
-
-    if (admin) {
-      router.push("/admin")
-    } else {
-      // Check if school exists
-      const { data: school } = await supabase
-        .from("schools")
-        .select("id")
-        .eq("id", data.user?.id)
-        .single()
-
-      if (school) {
-        router.push("/dashboard")
-      } else {
-        router.push("/")
-      }
-    }
-
-    router.refresh()
   }
 
   return (

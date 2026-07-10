@@ -43,14 +43,14 @@ export default async function SchoolDetailPage(props: { params: Promise<{ id: st
   const hasPremium = school.subscription_plan === "نمو" || school.subscription_plan === "احترافية"
 
   // Group subjects by level
-  const subjectsByLevel: Record<string, typeof subjects> = {}
+  const subjectsByLevel: Record<string, NonNullable<typeof subjects>> = {}
   subjects?.forEach((s) => {
     if (!subjectsByLevel[s.level_id]) subjectsByLevel[s.level_id] = []
-    subjectsByLevel[s.level_id].push(s)
+    subjectsByLevel[s.level_id]!.push(s)
   })
 
   // Get teachers for each subject
-  const teachersBySubject: Record<string, typeof teachers> = {}
+  const teachersBySubject: Record<string, NonNullable<typeof teachers>> = {}
   teacherSubjects?.forEach((ts) => {
     if (!teachersBySubject[ts.subject_id]) teachersBySubject[ts.subject_id] = []
     const teacher = teachers?.find((t) => t.id === ts.teacher_id)

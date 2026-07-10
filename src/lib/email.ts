@@ -38,7 +38,7 @@ export async function sendRegistrationEmail(params: {
           <p style="font-size:18px;color:#1f2937;line-height:1.8;">${studentName}، تم تسجيلك بنجاح عند الأستاذ <strong style="color:#1a5c2a;">${teacherName}</strong> في مادة <strong style="color:#1a5c2a;">${subjectName}</strong>.</p>
           <p style="font-size:16px;color:#4b5563;margin-top:20px;">مدرسة <strong style="color:#1a5c2a;">${schoolName}</strong> تتمنى لك التوفيق 🌟</p>
           <div style="margin-top:30px;padding-top:20px;border-top:1px solid #e5e7eb;">
-            <p style="font-size:14px;color:#9ca3af;">جميع الحقوق محفوظة © ${new Date().getFullYear()} — أكاديميتي</p>
+            <p style="font-size:14px;color:#9ca3af;">جميع الحقوق محفوظة © ${new Date().getFullYear()} — سجلني</p>
           </div>
         </td></tr>
       </table>
@@ -49,7 +49,7 @@ export async function sendRegistrationEmail(params: {
 
   try {
     await transporter.sendMail({
-      from: `"أكاديميتي" <${process.env.BREVO_SMTP_USER}>`,
+      from: `"سجلني" <${process.env.BREVO_SMTP_USER}>`,
       to,
       subject: "تم تسجيلك بنجاح ✅",
       html,
@@ -96,7 +96,7 @@ export async function sendStatusChangeEmail(params: {
 
   try {
     await transporter.sendMail({
-      from: `"أكاديميتي" <${process.env.BREVO_SMTP_USER}>`,
+      from: `"سجلني" <${process.env.BREVO_SMTP_USER}>`,
       to,
       subject: `تحديث حالة التسجيل - ${statusLabel}`,
       html,

@@ -34,7 +34,7 @@ export function Navbar() {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-700 text-white text-sm font-bold">
             أ
           </div>
-          <span className="text-xl font-bold text-emerald-800">أكاديميتي</span>
+          <span className="text-xl font-bold text-emerald-800">سجلني</span>
         </Link>
 
         {!isDashboard && (

@@ -35,7 +35,7 @@ export async function submitRegistration(formData: FormData) {
   // Verify subject belongs to school
   const { data: subject } = await supabase
     .from("subjects")
-    .select("id, school_id, level_id, branch_id")
+    .select("id, school_id, level_id, branch_id, name")
     .eq("id", data.subject_id)
     .eq("school_id", data.school_id)
     .single()
@@ -59,7 +59,7 @@ export async function submitRegistration(formData: FormData) {
   // Verify teacher belongs to this school
   const { data: teacher } = await supabase
     .from("teachers")
-    .select("id, school_id")
+    .select("id, school_id, full_name")
     .eq("id", data.teacher_id)
     .eq("school_id", data.school_id)
     .single()

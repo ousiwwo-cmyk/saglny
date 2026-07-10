@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 
 export const metadata: Metadata = {
-  title: "أكاديميتي - المنصة الجزائرية للأكاديميات والمدارس الخاصة",
+  title: "سجلني - المنصة الجزائرية للأكاديميات والمدارس الخاصة",
   description: "أول منصة جزائرية تربط التلاميذ بالأكاديميات والمدارس الخاصة. ابحث، تصفح، وسجل في المواد والأساتذة المناسبين.",
 }
 
